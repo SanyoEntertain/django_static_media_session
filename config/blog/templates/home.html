@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 블로그 home
 {% endblock title %}
 {% block extrahead %}
+<link rel="stylesheet" href="{% static 'blog/css/home.css' %}">
 {% endblock extrahead %}
 {% block content %}
 <section class="btn_block">

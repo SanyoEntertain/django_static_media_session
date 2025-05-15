@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 {{blog.title|truncatewords:7}}
 {% endblock title%}
 {% block extrahead %}
+<link rel="stylesheet" href="{% static 'blog/css/detail.css' %}">
 {% endblock extrahead %}
 {% block content %}
 <h1 style="text-align: center">{{blog.title}}</h1>

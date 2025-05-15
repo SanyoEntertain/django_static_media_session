@@ -1,0 +1,13 @@
+.write_section {
+    text-align: center;
+}
+
+.write_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.write_form textarea{
+    resize: none;
+}

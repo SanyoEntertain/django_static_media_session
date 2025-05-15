@@ -1,0 +1,16 @@
+.header_bar {
+    height: 75px;
+    padding: 1rem;
+    color: white;
+    background: linear-gradient(#3c3b3f, #605c3c);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Song Myung", serif;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+  }  

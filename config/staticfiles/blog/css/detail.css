@@ -1,0 +1,16 @@
+.main_section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.option_list{
+    display: flex;
+    justify-content: center;
+}
+
+.option_list a{
+    color: black;
+    text-decoration: none;
+    margin: 0px 5px;
+}

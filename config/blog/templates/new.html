@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load static %} 
 {% block title %}
 작성하기
 {% endblock title%}
 {% block extrahead %}
+<link rel="stylesheet" href="{% static 'blog/css/write.css' %}">
 {% endblock extrahead %}
 {% block content %}
 <section class="write_section">
