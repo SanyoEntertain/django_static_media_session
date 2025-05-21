@@ -14,12 +14,13 @@
   <pre>{{blog.content }}</pre>
   <p>{{blog.created_at}}</p>
   {% if blog.image %}
-  <img src="{{ blog.image.url }}" alt="image" width="200" />
+    <img src="{{ blog.image.url }}" alt="image" width="200" />
   {% endif %}
 </section>
 
 <hr />
 <section class="option_list">
+  <a href="{% url 'edit' blog.id %}">수정하기</a>
   <a href="{% url 'home' %}"> 메인화면 </a>
 </section>
 {% endblock %}

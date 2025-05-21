@@ -17,7 +17,6 @@ def detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
     return render(request, 'detail.html', {'blog': blog})
 
-
 # CREATE
 def create(request):
     if request.method == 'POST':
@@ -29,3 +28,35 @@ def create(request):
         return redirect('detail', new_blog.id)
     return render(request, 'new.html')
 
+# 수정 구현.
+def edit(request, blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+    return render(request, 'edit.html', {'edit_blog':blog})
+
+def update(request, blog_id):
+    if request.method == 'POST':
+        blog = get_object_or_404(Blog, pk=blog_id)
+        blog.title = request.POST['title']
+        print(type(request.POST.get('file_delete')))
+        if request.POST.get('file_delete') == 'on':
+            delete_image(blog)
+            blog.image = None
+        # blog image에 저장하기 전, 파일이 업로드 되었는지 확인
+        new_image = request.FILES.get('change_image')
+        # check image
+        if new_image:
+            delete_image(blog)
+            blog.image = new_image
+        blog.content = request.POST['content']
+        blog.save()
+        return redirect('detail', blog.id)
+    return render(request, 'edit.html')
+
+# image delete function
+def delete_image(blog):
+    if blog.image:
+        img_path = os.path.join(settings.MEDIA_ROOT, blog.image.name)
+        if os.path.exists(img_path):
+            os.remove(img_path)
+    else:
+        return False
